@@ -3,11 +3,11 @@ package com.driver.models;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "Image")
 public class Image {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String description;
@@ -24,6 +24,14 @@ public class Image {
     }
 
     public Image() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Blog getBlog() {

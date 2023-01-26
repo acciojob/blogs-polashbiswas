@@ -16,7 +16,7 @@ public class User {
     private String lastName;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    List<Blog> blogList;
+    private List<Blog> blogList;
 
     public User(String userName, String passWord, String firstName, String lastName) {
         this.userName = userName;
@@ -26,6 +26,14 @@ public class User {
     }
 
     public User() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public List<Blog> getBlogList() {
