@@ -24,6 +24,9 @@ public class BlogService {
     @Autowired
     UserRepository userRepository1;
 
+    @Autowired
+    ImageRepository imageRepository;
+
     public List<Blog> showBlogs(){
         //find all blogs
         return blogRepository1.findAll();
@@ -62,6 +65,7 @@ public class BlogService {
         Blog blog = blogRepository1.findById(blogId).get();
         Image image = imageService1.createAndReturn(blog,description,dimensions);
         List<Image> imageList = blog.getImageList();
+        if (imageList == null) imageList = new ArrayList<>();
         imageList.add(image);
         blog.setImageList(imageList);
         blogRepository1.save(blog);

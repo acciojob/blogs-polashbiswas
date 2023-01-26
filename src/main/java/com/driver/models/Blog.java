@@ -16,6 +16,7 @@ public class Blog {
 
     private String content;
 
+    @Temporal(value = TemporalType.TIMESTAMP)
     private Date pubDate;
 
     @ManyToOne
